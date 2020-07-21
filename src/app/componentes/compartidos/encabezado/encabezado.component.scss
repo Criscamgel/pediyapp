@@ -1,0 +1,18 @@
+.contenido{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    font-size: 11px;    
+    .contLogo{
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        img{
+            width: 70%;
+        }
+    }
+}
+
+.contLogo, .contTexto{
+    margin: 10px 0 0 0;
+    padding: 10px;
+}

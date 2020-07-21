@@ -1,0 +1,24 @@
+@import 'fuentes';
+@import '~@angular/material/theming';
+@import 'variables';
+
+
+@include mat-core();
+$my-app-primary: mat-palette($mat-gray);
+$my-app-accent: mat-palette($mat-gray, 900, 900, 900);
+$my-app-theme: mat-light-theme($my-app-accent, $my-app-accent);
+
+@include angular-material-theme($my-app-theme);
+
+* {
+    font-family: Bahnschrift;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s;
+}
+
+/* Estilos diferenciales Marterial */
+.mat-tab-labels{
+    background-color: $grisPrincipal;
+}
