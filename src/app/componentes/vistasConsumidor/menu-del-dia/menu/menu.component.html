@@ -1,0 +1,12 @@
+<div class="contenedor">
+    <div class="contenido">
+        <div *ngFor="let seccion of constantes.menu; let i = index" class="opcion">
+            <div class="encabezado">
+                <h3>{{seccion.titulo}}</h3>
+            </div>
+                <mat-radio-group aria-label="Selecciona Una opción">
+                    <mat-radio-button *ngFor="let opcion of constantes.menu[i].opciones" [(value)]="i">{{opcion}}</mat-radio-button>
+                </mat-radio-group>
+        </div>
+    </div>
+</div>
