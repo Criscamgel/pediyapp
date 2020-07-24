@@ -1,6 +1,26 @@
+@import '../../../../../scss/variables';
+
 .encabezado{
     text-align: center;
     padding: 15px;
     background-color: black;
     color: white;
+}
+
+.contBotones{
+    padding: 10px;
+}
+
+.contNumeroPlato{
+    padding: 5px;
+    text-align: right;
+}
+
+.contNumeroPlato{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    .titPlato{
+        text-align: left;
+        color: $grisPrincipal;
+    }
 }

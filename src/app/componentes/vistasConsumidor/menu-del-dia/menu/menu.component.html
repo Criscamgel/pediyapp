@@ -1,12 +1,55 @@
 <div class="contenedor">
     <div class="contenido">
-        <div *ngFor="let seccion of constantes.menu; let i = index" class="opcion">
-            <div class="encabezado">
-                <h3>{{seccion.titulo}}</h3>
+        <form [formGroup]="opcionesCorriente">
+            <div class="contNumeroPlato">
+                <h4 class="titPlato">Pide tu plato</h4>
+                <h4>PLATO {{pedidoServicio.pedido.platos.length+1}}</h4>
+                </div>
+            <div *ngFor="let seccion of constantes.menuCorriente; let i = index" class="opcion">
+                <div class="encabezado">
+                    <h3>{{seccion.titulo}}</h3>
+                </div>
+                    <mat-radio-group [formControlName]="seccion.seccion" aria-label="Selecciona Una opción">
+                        <mat-radio-button *ngFor="let opcion of constantes.menuCorriente[i].opciones" [value]="opcion.id">{{opcion.valor}}</mat-radio-button>
+                    </mat-radio-group>
             </div>
-                <mat-radio-group aria-label="Selecciona Una opción">
-                    <mat-radio-button *ngFor="let opcion of constantes.menu[i].opciones" [(value)]="i">{{opcion}}</mat-radio-button>
-                </mat-radio-group>
-        </div>
+            <div class="encabezado">
+                <h3>COMENTARIOS ADICIONALES</h3>
+            </div>
+            <div class="contComentarios">
+                <mat-form-field appearance="outline" class="formField">
+                    <textarea matInput 
+                    placeholder="Escribe aquí los detalles que haran de tu almuerzo el perfecto" 
+                    formControlName="comentarios"
+                    ></textarea>
+                    <!-- <mat-hint>Description should have a minimum of 3 words.</mat-hint> -->
+                </mat-form-field>
+            </div>
+
+            <div class="contBotones">
+            <button
+                mat-button 
+                color="primary"
+                [disabled] = "opcionesCorriente.invalid"
+                >PEDIR OTRO PLATO
+            </button>
+            <button
+                mat-button 
+                color="primary"
+                (click)="platoIgual()"
+                [disabled] = "opcionesCorriente.invalid"
+                >QUIERO OTRO PLATO IGUAL
+            </button>
+            <button
+                mat-button 
+                color="primary"
+                [disabled] = "opcionesCorriente.invalid"
+                (click)="enviarPlato()"
+                >CONTINUAR
+            </button>
+            </div>
+
+        </form>
     </div>
+    <app-barranotificacion *ngIf="pedidoServicio.barraNotifica.visible"></app-barranotificacion>
 </div>
