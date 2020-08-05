@@ -1,0 +1,12 @@
+.contenedor{
+    display: grid;
+    height: 100vh;
+    .contenido{
+        text-align: center;
+        align-self: center;
+        padding: 0 10%;
+        .contTitulo{
+            font-size: 20px;
+        }
+    }
+}

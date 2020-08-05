@@ -7,17 +7,17 @@ export const Constantes = {
             opciones : [
                 {
                     id: 1,
-                    valor: 'SOPA DE PLATANO'
+                    nombre: 'SOPA DE PLATANO'
                 },
 
                 {
                     id: 2,
-                    valor: 'PETO'
+                    nombre: 'PETO'
                 },
 
                 {
                     id: 3,
-                    valor: 'FRUTA'
+                    nombre: 'FRUTA'
                 }
             ],
 
@@ -29,17 +29,17 @@ export const Constantes = {
             opciones : [
                 {
                     id: 1,
-                    valor: 'FRIJOL'
+                    nombre: 'FRIJOL'
                 },
 
                 {
                     id: 2,
-                    valor: 'ESPAGUETTI'
+                    nombre: 'ESPAGUETTI',
                 },
 
                 {
                     id: 3,
-                    valor: 'POTECA AHUYAMA'
+                    nombre: 'POTECA AHUYAMA',
                 }
             ],
 
@@ -51,17 +51,17 @@ export const Constantes = {
             opciones : [
                 {
                     id: 1,
-                    valor: 'ALBONDIGAS'
+                    nombre: 'ALBONDIGAS',
                 },
 
                 {
                     id: 2,
-                    valor: 'CERDO EN SALSA BBQ'
+                    nombre: 'CERDO EN SALSA BBQ',
                 },
 
                 {
                     id: 3,
-                    valor: 'POLLO AL HORNO'
+                    nombre: 'POLLO AL HORNO',
                 }
             ],
 
@@ -73,16 +73,22 @@ export const Constantes = {
             opciones : [
                 {
                     id: 1,
-                    valor: 'LIMONADA',
+                    nombre: 'LIMONADA',
                 },
 
                 {
                     id: 2,
-                    valor: 'JUGO DE MORA'
+                    nombre: 'JUGO DE MORA',
                 }
             ],
 
         },
 
+        {
+            costo: {
+                valor: 8000,
+                domicilio: 0
+            }
+        }
     ]
-}
+};

@@ -1,0 +1,39 @@
+<div class="contenedor">
+    <div class="contenido">
+        <div class="contTitulo">
+            PEDI<b>YAPP</b>
+        </div>
+        <form [formGroup]="ingreso">
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Correo electrónico</mat-label>
+                <input 
+                matInput
+                formControlName="correo"                
+                placeholder="Correo electrónico*"
+                required
+                >
+                <mat-error *ngIf="correoNoValido">Diligencia un correo electronico válido</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contraseña</mat-label>
+                <input 
+                matInput
+                formControlName="contrasenia"
+                placeholder="Contraseña"
+                required
+                >
+                <mat-error *ngIf="correoNoValido">Diligencia un correo electronico válido</mat-error>
+            </mat-form-field>
+
+            <button
+                mat-button 
+                color="primary"
+                [disabled] = "ingreso.invalid"
+                >                    
+                CONTINUAR
+            </button>
+
+        </form>
+    </div>
+</div>

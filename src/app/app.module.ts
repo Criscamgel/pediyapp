@@ -12,6 +12,8 @@ import { MenuComponent } from './componentes/vistasConsumidor/menu-del-dia/menu/
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BarranotificacionComponent } from './componentes/compartidos/barranotificacion/barranotificacion.component';
+import { CalculadoraPlatosComponent } from './componentes/compartidos/calculadora-platos/calculadora-platos.component';
+import { IngresoComponent } from './componentes/ingreso/ingreso.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { BarranotificacionComponent } from './componentes/compartidos/barranotif
     EncabezadoComponent,
     PieComponent,
     MenuComponent,
-    BarranotificacionComponent
+    BarranotificacionComponent,
+    CalculadoraPlatosComponent,
+    IngresoComponent
   ],
   imports: [
     BrowserModule,

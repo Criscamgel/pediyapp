@@ -6,11 +6,11 @@
                 <h4>PLATO {{pedidoServicio.pedido.platos.length+1}}</h4>
                 </div>
             <div *ngFor="let seccion of constantes.menuCorriente; let i = index" class="opcion">
-                <div class="encabezado">
+                <div *ngIf="seccion.titulo" class="encabezado">
                     <h3>{{seccion.titulo}}</h3>
                 </div>
-                    <mat-radio-group [formControlName]="seccion.seccion" aria-label="Selecciona Una opción">
-                        <mat-radio-button *ngFor="let opcion of constantes.menuCorriente[i].opciones" [value]="opcion.id">{{opcion.valor}}</mat-radio-button>
+                    <mat-radio-group [formControlName]="seccion.seccion" *ngIf="seccion.titulo" aria-label="Selecciona Una opción">
+                        <mat-radio-button *ngFor="let opcion of constantes.menuCorriente[i].opciones" [value]="opcion.id" [checked]="opcionesCorriente.value[seccion.seccion]">{{opcion.nombre + opcionesCorriente.value[seccion.seccion]}}</mat-radio-button>                    
                     </mat-radio-group>
             </div>
             <div class="encabezado">
@@ -26,28 +26,46 @@
                 </mat-form-field>
             </div>
 
+            <app-calculadora-platos></app-calculadora-platos>
+
             <div class="contBotones">
+
+                <div class="contIncrementador">
+                    <button
+                            mat-button
+                            class="incrementador" 
+                            color="second"
+                            (click)="restarPlato()"
+                            [disabled] = "opcionesCorriente.invalid"
+                            >
+                            -
+                    </button>
+                    <div class="numIncrementador" [ngClass]="{desabilitado: opcionesCorriente.invalid}">{{pedidoServicio.pedido.platos.length+1}}</div>
+                    <button
+                            mat-button
+                            class="incrementador" 
+                            color="second"
+                            (click)= "sumarPlato()"
+                            [disabled] = "opcionesCorriente.invalid"
+                            >
+                            +
+                    </button>
+                </div>
+
             <button
                 mat-button 
                 color="primary"
                 [disabled] = "opcionesCorriente.invalid"
-                >PEDIR OTRO PLATO
+                (click)="continuarPaso()"
+                >                    
+                CONTINUAR
             </button>
-            <button
-                mat-button 
-                color="primary"
-                (click)="platoIgual()"
-                [disabled] = "opcionesCorriente.invalid"
-                >QUIERO OTRO PLATO IGUAL
-            </button>
-            <button
-                mat-button 
-                color="primary"
-                [disabled] = "opcionesCorriente.invalid"
-                (click)="enviarPlato()"
-                >CONTINUAR
-            </button>
+            
             </div>
+
+            <pre>
+                {{ this.pedidoServicio.pedido.platos | json }}
+            </pre>
 
         </form>
     </div>

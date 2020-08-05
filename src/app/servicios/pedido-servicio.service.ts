@@ -14,6 +14,9 @@ export class PedidoServicioService {
     visible: false
   };
 
+  precioPlato: Number;
+  obsPrecioPlato: any;
+
   pedido = {
     pedido: {
     consumidor: '',
@@ -27,8 +30,8 @@ export class PedidoServicioService {
           cantidad: 3
       }
     ],
-    totalPedido: 200000,
-    valorDomicilio: 200000
+    totalPedido: 0,
+    valorDomicilio: 0
 
   };
 
@@ -41,5 +44,9 @@ export class PedidoServicioService {
     this.barraNotifica.mensaje = mensaje;
     this.barraNotifica.accion = accion;
     this.obsBarraNotifica.next(this.barraNotifica);
+   }
+
+   setPrecioPlato(){
+
    }
 }

@@ -1,6 +1,7 @@
 @import 'fuentes';
 @import '~@angular/material/theming';
 @import 'variables';
+@import 'mixins';
 
 
 @include mat-core();
@@ -29,6 +30,9 @@ $my-app-theme: mat-light-theme($my-app-accent, $my-app-accent);
 
 mat-radio-group {
     display: grid;
+    @include smallTablet(){
+        grid-template-columns: repeat(4, 25%);
+    }
     .mat-radio-button{
         padding: 20px;
         align-self: center;
@@ -56,6 +60,11 @@ mat-radio-group {
 .mat-button{
     width: 100%;
 }
+button.incrementador{
+    width: auto;
+    border: 1px solid;
+    min-width: 0 !important;
+}
 .mat-button.mat-primary{
     border: 1px solid black;
 }
@@ -73,6 +82,10 @@ mat-radio-group {
 }
 
 .mat-button[disabled]{
+    opacity: 0.3;
+}
+
+.desabilitado{
     opacity: 0.3;
 }
 

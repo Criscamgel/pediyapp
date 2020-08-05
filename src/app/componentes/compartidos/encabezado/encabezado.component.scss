@@ -1,3 +1,6 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
 .contenido{
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -8,11 +11,22 @@
         justify-self: center;
         img{
             width: 90%;
+            @include smallTablet(){
+                width: 75%;
+            }
         }
     }
 }
 
 .contLogo, .contTexto{
+    align-self: center;
+    justify-self: center;
     margin: 10px 0 0 0;
     padding: 10px;
 }
+    @include smallTablet(){
+        .contTexto{
+            justify-self: right;
+            padding: 0 25px;
+        }   
+    }
