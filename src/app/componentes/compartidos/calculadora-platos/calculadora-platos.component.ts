@@ -11,7 +11,20 @@ export class CalculadoraPlatosComponent implements OnInit {
 
   const = Constantes;
 
-  constructor(public pedidoServicio: PedidoServicioService) { }
+  constructor(public pedidoServicio: PedidoServicioService) {
+    this.getObservablePlatos();
+   }
+
+   getObservablePlatos() {
+    this.pedidoServicio.obsPlatos.subscribe( () => {
+      this.pedidoServicio.pedido.totalPedido = 0;
+      if (this.pedidoServicio.pedido.platos.length > 0) {
+        this.pedidoServicio.pedido.platos.forEach(plato => {
+          this.pedidoServicio.pedido.totalPedido += plato.costo.valor;
+        });
+      }
+    });
+   }
 
   ngOnInit() {
   }

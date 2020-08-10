@@ -3,14 +3,14 @@
         <form [formGroup]="opcionesCorriente">
             <div class="contNumeroPlato">
                 <h4 class="titPlato">Pide tu plato</h4>
-                <h4>PLATO {{pedidoServicio.pedido.platos.length+1}}</h4>
+                <h4>PLATO {{pedidoServicio.pedido.platos.length === 0 ? pedidoServicio.pedido.platos.length+1 : pedidoServicio.pedido.platos.length}}</h4>
                 </div>
             <div *ngFor="let seccion of constantes.menuCorriente; let i = index" class="opcion">
                 <div *ngIf="seccion.titulo" class="encabezado">
                     <h3>{{seccion.titulo}}</h3>
                 </div>
                     <mat-radio-group [formControlName]="seccion.seccion" *ngIf="seccion.titulo" aria-label="Selecciona Una opción">
-                        <mat-radio-button *ngFor="let opcion of constantes.menuCorriente[i].opciones" [value]="opcion.id" [checked]="opcionesCorriente.value[seccion.seccion]">{{opcion.nombre + opcionesCorriente.value[seccion.seccion]}}</mat-radio-button>                    
+                        <mat-radio-button *ngFor="let opcion of constantes.menuCorriente[i].opciones" [value]="opcion.id">{{opcion.nombre }}</mat-radio-button>                    
                     </mat-radio-group>
             </div>
             <div class="encabezado">
@@ -40,7 +40,7 @@
                             >
                             -
                     </button>
-                    <div class="numIncrementador" [ngClass]="{desabilitado: opcionesCorriente.invalid}">{{pedidoServicio.pedido.platos.length+1}}</div>
+                    <div class="numIncrementador" [ngClass]="{desabilitado: opcionesCorriente.invalid}">{{pedidoServicio.pedido.platos.length}}</div>
                     <button
                             mat-button
                             class="incrementador" 
@@ -60,11 +60,10 @@
                 >                    
                 CONTINUAR
             </button>
-            
             </div>
 
             <pre>
-                {{ this.pedidoServicio.pedido.platos | json }}
+                {{ pedidoServicio.pedido.platos | json }}
             </pre>
 
         </form>

@@ -14,11 +14,7 @@ export class BarranotificacionComponent {
   }
 
   getObservableBarraNotifica() {
-    this.pedidoServicio.obsBarraNotifica.subscribe( (value) =>
-      {
-        console.log(value);
-        this.abrirBarraNotifica(value.mensaje, value.accion);
-      });
+    this.pedidoServicio.obsBarraNotifica.subscribe( (value) => this.abrirBarraNotifica(value.mensaje, value.accion));
   }
 
   abrirBarraNotifica(mensaje: string, accion: string) {

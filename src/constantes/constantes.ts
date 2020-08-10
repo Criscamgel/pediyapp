@@ -1,5 +1,8 @@
 export const Constantes = {
     logoCliente: './assets/imagenes/logocliente.png',
+    regex: {
+        patternMail: "^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"
+    },
     menuCorriente: [
         {
             seccion: 'entrada',
@@ -66,29 +69,25 @@ export const Constantes = {
             ],
 
         },
-
         {
             seccion: 'bebida',
             titulo: 'ELIGE TU BEBIDA',
             opciones : [
                 {
                     id: 1,
-                    nombre: 'LIMONADA',
+                    nombre: 'JUGO DE MORA',
                 },
 
                 {
                     id: 2,
-                    nombre: 'JUGO DE MORA',
+                    nombre: 'LIMONADA',
                 }
             ],
 
-        },
-
-        {
-            costo: {
-                valor: 8000,
-                domicilio: 0
-            }
         }
-    ]
+    ],
+    costo: {
+        valor: 8000,
+        domicilio: 0
+    }
 };

@@ -15,25 +15,33 @@
                 >
                 <mat-error *ngIf="correoNoValido">Diligencia un correo electronico válido</mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Contraseña</mat-label>
                 <input 
                 matInput
+                type="password"
                 formControlName="contrasenia"
                 placeholder="Contraseña"
                 required
                 >
-                <mat-error *ngIf="correoNoValido">Diligencia un correo electronico válido</mat-error>
+                <mat-error *ngIf="contraseniaNoValido">Diligencia tu contraseña</mat-error>
             </mat-form-field>
 
             <button
                 mat-button 
                 color="primary"
                 [disabled] = "ingreso.invalid"
+                (click)= "goto"
                 >                    
                 CONTINUAR
             </button>
 
         </form>
+        <a href="">
+            <div class="contRecuperar">
+                    Olvide mi contraseña
+            </div>
+        </a>
     </div>
 </div>

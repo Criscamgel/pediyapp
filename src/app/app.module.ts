@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BarranotificacionComponent } from './componentes/compartidos/barranotificacion/barranotificacion.component';
 import { CalculadoraPlatosComponent } from './componentes/compartidos/calculadora-platos/calculadora-platos.component';
 import { IngresoComponent } from './componentes/ingreso/ingreso.component';
+import { RecuperarComponent } from './componentes/ingreso/recuperar/recuperar.component';
+
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { IngresoComponent } from './componentes/ingreso/ingreso.component';
     MenuComponent,
     BarranotificacionComponent,
     CalculadoraPlatosComponent,
-    IngresoComponent
+    IngresoComponent,
+    RecuperarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import { IngresoComponent } from './componentes/ingreso/ingreso.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

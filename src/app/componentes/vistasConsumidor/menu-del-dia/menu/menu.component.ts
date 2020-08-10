@@ -34,11 +34,14 @@ export class MenuComponent implements OnInit {
         nombre: null
       }
     },
+    costo: this.constantes.costo,
     comentarios: ''
   };
 
   constructor( public formBuilder: FormBuilder, public pedidoServicio: PedidoServicioService ) {
     this.crearFormulario();
+    this.changeOpcionesCorrienteValid();
+
   }
 
   ngOnInit() {
@@ -56,18 +59,23 @@ export class MenuComponent implements OnInit {
     /* Observables */
     this.opcionesCorriente.controls['entrada'].valueChanges.subscribe(value => {
         this.plato.plato.entrada = this.constantes.menuCorriente[0].opciones[value - 1];
+        this.changeOpcionesCorrienteValid();
     });
     this.opcionesCorriente.controls['principio'].valueChanges.subscribe(value => {
          this.plato.plato.principio = this.constantes.menuCorriente[1].opciones[value - 1];
+         this.changeOpcionesCorrienteValid();
     });
     this.opcionesCorriente.controls['proteina'].valueChanges.subscribe(value => {
        this.plato.plato.proteina = this.constantes.menuCorriente[2].opciones[value - 1];
+       this.changeOpcionesCorrienteValid();
     });
     this.opcionesCorriente.controls['bebida'].valueChanges.subscribe(value => {
        this.plato.plato.bebida = this.constantes.menuCorriente[3].opciones[value - 1];
+       this.changeOpcionesCorrienteValid();
     });
     this.opcionesCorriente.controls['comentarios'].valueChanges.subscribe(value => {
        this.plato.comentarios = value;
+       this.changeOpcionesCorrienteValid();
     });
   }
 
@@ -77,22 +85,24 @@ export class MenuComponent implements OnInit {
     this.pedidoServicio.pedido.platos.push(plato);
     this.pedidoServicio.setBarraNotifica('Tu plato ha sido añadido', 'ok');
     window.scroll(0, 0);
+    this.pedidoServicio.setPlatos();
   }
   restarPlato() {
     this.pedidoServicio.pedido.platos.pop();
     this.pedidoServicio.barraNotifica.visible = true;
     this.pedidoServicio.setBarraNotifica('Tu plato ha sido eliminado', 'ok');
+    this.pedidoServicio.setPlatos();
+  }
 
-    const ultimo = this.pedidoServicio.pedido.platos.length-1;
-    console.log(ultimo);
-    console.log(this.pedidoServicio.pedido.platos[ultimo]);
-    if (ultimo > 0) {
-    this.opcionesCorriente.value['entrada'] = this.pedidoServicio.pedido.platos[ultimo].plato.entrada.id;
-    this.opcionesCorriente.value['principio'] = this.pedidoServicio.pedido.platos[ultimo].plato.principio.id;
-    this.opcionesCorriente.value['proteina'] = this.pedidoServicio.pedido.platos[ultimo].plato.proteina.id;
-    this.opcionesCorriente.value['bebida'] = this.pedidoServicio.pedido.platos[ultimo].plato.bebida.id;
-    this.opcionesCorriente.value['comentarios'] = this.pedidoServicio.pedido.platos[ultimo].comentarios;
-    }
+  changeOpcionesCorrienteValid() {
+      setTimeout(() => {
+
+        if (this.opcionesCorriente.valid && this.pedidoServicio.pedido.platos.length === 0) {
+          const plato = (JSON.parse(JSON.stringify(this.plato)));
+          this.pedidoServicio.pedido.platos.push(plato);
+          this.pedidoServicio.setPlatos();
+        }
+      }, 100);
   }
 
 }

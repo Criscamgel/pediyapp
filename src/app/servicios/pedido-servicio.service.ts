@@ -14,9 +14,6 @@ export class PedidoServicioService {
     visible: false
   };
 
-  precioPlato: Number;
-  obsPrecioPlato: any;
-
   pedido = {
     pedido: {
     consumidor: '',
@@ -35,9 +32,12 @@ export class PedidoServicioService {
 
   };
 
+  obsPlatos: any;
+
   constructor() {
     /* Observables */
     this.obsBarraNotifica = new BehaviorSubject<any>(this.barraNotifica);
+    this.obsPlatos = new BehaviorSubject<any>(this.pedido.platos.length);
    }
 
    setBarraNotifica(mensaje: string, accion: string) {
@@ -46,7 +46,7 @@ export class PedidoServicioService {
     this.obsBarraNotifica.next(this.barraNotifica);
    }
 
-   setPrecioPlato(){
-
+   setPlatos() {
+    this.obsPlatos.next(this.pedido.platos.length);
    }
 }
