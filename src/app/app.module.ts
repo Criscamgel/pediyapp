@@ -17,6 +17,7 @@ import { BarranotificacionComponent } from './componentes/compartidos/barranotif
 import { CalculadoraPlatosComponent } from './componentes/compartidos/calculadora-platos/calculadora-platos.component';
 import { IngresoComponent } from './componentes/ingreso/ingreso.component';
 import { RecuperarComponent } from './componentes/ingreso/recuperar/recuperar.component';
+import { SusdatosComponent } from './componentes/vistasConsumidor/susdatos/susdatos.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -30,7 +31,8 @@ registerLocaleData(localeEs, 'es');
     BarranotificacionComponent,
     CalculadoraPlatosComponent,
     IngresoComponent,
-    RecuperarComponent
+    RecuperarComponent,
+    SusdatosComponent
   ],
   imports: [
     BrowserModule,

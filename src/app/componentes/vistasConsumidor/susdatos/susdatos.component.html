@@ -1,0 +1,51 @@
+<app-encabezado 
+    [titulo]="constantes.titulosSecciones[1].titulo"
+    [subtitulo]="constantes.titulosSecciones[1].subtitulo">
+</app-encabezado>
+<div class="contenedor">
+        <div class="contenido">
+        <form [formGroup]="susDatos">
+            <div class="dobleCampo">
+            <mat-form-field appearance="outline" class="full-width">
+                <input 
+                matInput
+                type="text"
+                placeholder="Nombre Completo"
+                formControlName="nombres"
+                required
+                >
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <input 
+                matInput
+                currencyMask 
+                type="cel"
+                placeholder="Número de celular"
+                formControlName="celular"
+                required
+                >
+            </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+                <input
+                type="text"
+                matInput 
+                placeholder="Dirección"
+                formControlName="direccion"
+                required
+                >
+            </mat-form-field>
+
+            <button
+                mat-button 
+                color="primary"
+                [disabled] = "susDatos.invalid"
+                (click)="iraSusDatos()"
+                >                    
+                CONTINUAR
+            </button>
+        </form>
+    </div>
+</div>
+
+<app-pie></app-pie>

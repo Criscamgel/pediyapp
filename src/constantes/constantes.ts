@@ -3,6 +3,17 @@ export const Constantes = {
     regex: {
         patternMail: "^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"
     },
+    titulosSecciones: [
+        {
+            titulo: "BIENVENIDO",
+            subtitulo: "Estamos listos para recibir tu pedido"
+        },
+        {
+            titulo: "DATOS DE DESTINO",
+            subtitulo: "Necesitamos estos datos para hacer llegar tu pedido"
+        }
+
+    ],
     menuCorriente: [
         {
             seccion: 'entrada',

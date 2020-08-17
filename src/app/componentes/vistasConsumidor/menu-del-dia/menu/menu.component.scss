@@ -49,6 +49,7 @@
 }
 
 mat-radio-button{
+    height: 100%;
     @include smallTablet(){
         font-size: 12px;
     }

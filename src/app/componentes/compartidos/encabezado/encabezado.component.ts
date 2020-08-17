@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Constantes } from '../../../../constantes/constantes';
 
 @Component({
@@ -9,6 +9,8 @@ import { Constantes } from '../../../../constantes/constantes';
 export class EncabezadoComponent implements OnInit {
 
   constantes = Constantes;
+  @Input() titulo;
+  @Input() subtitulo;
 
   constructor() { }
 

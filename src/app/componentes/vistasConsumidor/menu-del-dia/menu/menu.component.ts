@@ -3,6 +3,7 @@ import { Constantes } from '../../../../../constantes/constantes';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { PedidoServicioService } from 'src/app/servicios/pedido-servicio.service';
 import { PlatoCorriente } from 'src/app/interfaces/plato-corriente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -38,7 +39,7 @@ export class MenuComponent implements OnInit {
     comentarios: ''
   };
 
-  constructor( public formBuilder: FormBuilder, public pedidoServicio: PedidoServicioService ) {
+  constructor( public formBuilder: FormBuilder, public pedidoServicio: PedidoServicioService, private router: Router) {
     this.crearFormulario();
     this.changeOpcionesCorrienteValid();
 
@@ -103,6 +104,10 @@ export class MenuComponent implements OnInit {
           this.pedidoServicio.setPlatos();
         }
       }, 100);
+  }
+
+  iraSusDatos() {
+    this.router.navigateByUrl('/menudeldia/susdatos');
   }
 
 }
