@@ -18,6 +18,7 @@ import { CalculadoraPlatosComponent } from './componentes/compartidos/calculador
 import { IngresoComponent } from './componentes/ingreso/ingreso.component';
 import { RecuperarComponent } from './componentes/ingreso/recuperar/recuperar.component';
 import { SusdatosComponent } from './componentes/vistasConsumidor/susdatos/susdatos.component';
+import { SoloNumerosDirective } from './directivas/solo-numeros.directive';
 
 registerLocaleData(localeEs, 'es');
 
@@ -32,7 +33,8 @@ registerLocaleData(localeEs, 'es');
     CalculadoraPlatosComponent,
     IngresoComponent,
     RecuperarComponent,
-    SusdatosComponent
+    SusdatosComponent,
+    SoloNumerosDirective
   ],
   imports: [
     BrowserModule,

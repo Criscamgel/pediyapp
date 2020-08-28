@@ -1,3 +1,13 @@
 .contenido{
     margin: 0 10px;
 }
+
+.mapa {
+    display: grid;
+    height: 210px;
+    margin: 0 0 10px 0;
+    div{
+        align-self: center;
+        justify-self: center;  
+    }
+}

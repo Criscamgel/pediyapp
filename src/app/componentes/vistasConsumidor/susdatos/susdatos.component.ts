@@ -16,8 +16,11 @@ export class SusdatosComponent implements OnInit {
   constructor( public formBuilder: FormBuilder) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc2NhbWdlbCIsImEiOiJja2R5dXRmdWYwbzFjMnpvZ3hreDJnaTI0In0.MLgEpBj00KSBOZMX7fZHhA';
     this.crearFormulario();
-    this.crearMapa();
 
+  }
+
+  ngAfterViewInit() {
+    this.crearMapa();
   }
 
   ngOnInit() {
